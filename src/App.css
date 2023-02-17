@@ -45,6 +45,32 @@
   -webkit-background-size: cover;
 }
 
-.footer_nav-wrapper {
+/* .footer_nav-wrapper {
   background: rgba(0, 0, 0, 0.4);
+} */
+
+.login-wrapper {
+  background-image: url("./assets/images/loginbg.jpg");
+  background-size: cover;
+  -webkit-background-size: cover;
+}
+
+.login-subwrapper {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.login-subwrapper input[type="tel"],
+.login-subwrapper input[type="password"],
+.login-subwrapper input[type="checkbox"] {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

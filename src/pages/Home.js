@@ -14,6 +14,7 @@ import c6 from "../assets/images/c6.jpg"
 import vid from "../assets/video/p.mp4"
 import ReactPlayer from 'react-player'
 import { motion } from "framer-motion"
+import Footer from '../components/Footer'
 
 const Courses = [
     { title: "English Grammar ", img: c1, desc: "We teach you how to properly use English grammar and make it easier to learn English. Improve your English grammar now!" },
@@ -80,148 +81,6 @@ const Home = () => {
 
         </section>
 
-        {/* <section>
-            <div class="what-we-do py-5">
-                <div class="container py-xl-5 py-lg-3">
-                    <h3
-                        class="title text-capitalize font-weight-light text-white text-center mb-5"
-                    >
-                        what we
-                        <span class="font-weight-bold">do</span>
-                    </h3>
-                    <div class="row agileits-w3layouts-grid pt-md-4">
-                        <div class="col-lg-4 services-agile-1">
-                            <div class="row wthree_agile_us">
-                                <div class="col-lg-3 col-md-2 col-3 agile-why-text">
-                                    <div
-                                        class="wthree_features_grid text-center p-3 border rounded"
-                                    >
-                                        <i class="fab fa-accusoft"></i>
-                                    </div>
-                                </div>
-                                <div class="col-9 agile-why-text-2">
-                                    <h4 class="text-capitalize text-black font-weight-bold mb-3">
-                                        special education
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum magna, vehicula ut scelerisque ornare porta ete
-                                        celerisque ornare.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 services-agile-1 my-lg-0 my-5">
-                            <div class="row wthree_agile_us">
-                                <div class="col-lg-3 col-md-2 col-3 agile-why-text">
-                                    <div
-                                        class="wthree_features_grid text-center p-3 border rounded"
-                                    >
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                </div>
-                                <div class="col-9 agile-why-text-2">
-                                    <h4 class="text-capitalize text-black font-weight-bold mb-3">
-                                        full day session
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum magna, vehicula ut scelerisque ornare porta ete
-                                        celerisque ornare.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 services-agile-1">
-                            <div class="row wthree_agile_us">
-                                <div class="col-lg-3 col-md-2 col-3 agile-why-text">
-                                    <div
-                                        class="wthree_features_grid text-center p-3 border rounded"
-                                    >
-                                        <i class="fas fa-users"></i>
-                                    </div>
-                                </div>
-                                <div class="col-9 agile-why-text-2">
-                                    <h4 class="text-capitalize text-black font-weight-bold mb-3">
-                                        qualified teachers
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum magna, vehicula ut scelerisque ornare porta ete
-                                        celerisque ornare.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row agileits-w3layouts-grid mt-5">
-                        <div class="col-lg-4 services-agile-1">
-                            <div class="row wthree_agile_us">
-                                <div class="col-lg-3 col-md-2 col-3 agile-why-text">
-                                    <div
-                                        class="wthree_features_grid text-center p-3 border rounded"
-                                    >
-                                        <i class="far fa-calendar-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="col-9 agile-why-text-2">
-                                    <h4 class="text-capitalize text-black font-weight-bold mb-3">
-                                        events
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum magna, vehicula ut scelerisque ornare porta ete
-                                        celerisque ornare.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 services-agile-1 my-lg-0 my-5">
-                            <div class="row wthree_agile_us">
-                                <div class="col-lg-3 col-md-2 col-3 agile-why-text">
-                                    <div
-                                        class="wthree_features_grid text-center p-3 border rounded"
-                                    >
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                </div>
-                                <div class="col-9 agile-why-text-2">
-                                    <h4 class="text-capitalize text-black font-weight-bold mb-3">
-                                        pre classes
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum magna, vehicula ut scelerisque ornare porta ete
-                                        celerisque ornare.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 services-agile-1">
-                            <div class="row wthree_agile_us">
-                                <div class="col-lg-3 col-md-2 col-3 agile-why-text">
-                                    <div
-                                        class="wthree_features_grid text-center p-3 border rounded"
-                                    >
-                                        <i class="far fa-clock"></i>
-                                    </div>
-                                </div>
-                                <div class="col-9 agile-why-text-2">
-                                    <h4 class="text-capitalize text-black font-weight-bold mb-3">
-                                        24/7 supports
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum magna, vehicula ut scelerisque ornare porta ete
-                                        celerisque ornare.
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> */}
 
         <section className='mt-[25vh]'>
             <h2 className='text-center text-4xl mb-8'>Choose Your
@@ -262,7 +121,7 @@ const Home = () => {
                 </div>
             </div>
         </section>
-
+        <Footer />
     </article>
     )
 }

@@ -4,6 +4,7 @@ import React from 'react'
 import heroImg1 from "../assets/images/ap-1.jpg"
 import heroImg2 from "../assets/images/ap-2.jpg"
 import heroImg3 from "../assets/images/ap-3.jpg"
+import Footer from '../components/Footer'
 
 
 const About = () => {
@@ -42,6 +43,7 @@ const About = () => {
                     </div>
                 </section>
             </main>
+            <Footer />
 
         </article>
     )

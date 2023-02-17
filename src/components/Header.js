@@ -29,8 +29,18 @@ const Header = () => {
                         </div>
                     </div>
                     <div className='w-1/5 flex items-center text-base'>
-                        <button className='text-white font-bold  '>Sign in</button>
-                        <button className=' font-bold ml-8 text-orange-600'>Log in</button>
+                        {!localStorage.getItem("isSignedIn") && <button onClick={() => {
+                            navigate("/login")
+                        }} className='text-white font-bold  '>Login</button>}
+                        {localStorage.getItem("isSignedIn") && <button onClick={() => {
+                            localStorage.removeItem("isSignedIn");
+                            navigate("/login")
+                        }} className='text-white font-bold  '>Logout</button>}
+                        {/* {  <button onClick={() => {
+                            localStorage.removeItem("isSignedIn");
+                            navigate("/login")
+                        }} className=' font-bold ml-8 text-orange-600'>Log out</button>} */}
+
                     </div>
                 </div>
 
@@ -68,8 +78,14 @@ const Header = () => {
                                     languages
                                 </Button>
                                 <Menu {...bindMenu(popupState)} >
-                                    <MenuItem onClick={popupState.close}>English</MenuItem>
-                                    <MenuItem onClick={popupState.close}>Chinise</MenuItem>
+                                    <MenuItem onClick={() => {
+                                        popupState.close()
+                                        navigate("/english-course");
+                                    }}>English</MenuItem>
+                                    <MenuItem onClick={() => {
+                                        popupState.close()
+                                        navigate("chinese-course")
+                                    }}>Chinise</MenuItem>
                                 </Menu>
                             </React.Fragment>
                         )}

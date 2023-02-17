@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import Footer from '../components/Footer'
 
 const ContactUs = () => {
     const [fname, setFname] = useState("")
@@ -46,6 +47,9 @@ const ContactUs = () => {
                     </div>
                 </section>
             </article>
+
+            <Footer />
+
         </main>
     )
 }

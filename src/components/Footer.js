@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import { useNavigate } from "react-router-dom"
 
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
@@ -7,28 +7,27 @@ import MailIcon from '@mui/icons-material/Mail';
 
 const Footer = () => {
 
-    const [email, setEmail] = useState("")
     const navigate = useNavigate()
 
     return (<>
 
 
         <section className="mt-[35vh] footer_nav-wrapper text-white flex flex-col md:flex-row justify-center items-center bg-black">
-            <div className="w-[30%] border-r-2 ">
-                <h2 className='text-6xl italic text-white font-bold text-center'>class<span className='text-orange-500'>ABCD</span></h2>
+            <div className="md:w-[30%] border-r-2 mt-4 md:mt-4">
+                <h2 className='text-4xl md:text-6xl italic text-white font-bold text-center'>class<span className='text-orange-500'>ABCD</span></h2>
                 <p className="text-sm text-gray-300 mt-8 leading-8 w-3/5 ml-[20%] ">Our mission is to prove that learning a language is fun and rewarding !</p>
             </div>
-            <div className="w-[70%] flex justify-evenly text-gray-400 ">
-                <div className="py-8 mt-[5vh]">
+            <div className="md:w-[70%] flex flex-col md:flex-row items-center justify-evenly text-gray-400 ">
+                <div className="py-8 md:mt-[5vh]">
                     <h4 className="text-lg font-bold">Compony</h4>
-                    <ul className="mt-2 ">
-                        <li onClick={() => navigate("/")} className="py-2 cursor-pointer hover:text-white">Home</li>
+                    <ul className="mt-2 text-center">
+                        <li onClick={() => navigate("/")} className="py-2  cursor-pointer hover:text-white">Home</li>
                         <li onClick={() => navigate("/about-us")} className="py-2 cursor-pointer hover:text-white">About</li>
                         <li onClick={() => navigate("/faqs")} className="py-2 cursor-pointer hover:text-white">FAQs</li>
                         <li onClick={() => navigate("/contact-us")} className="py-2 cursor-pointer hover:text-white">Contact</li>
                     </ul>
                 </div>
-                <div className="py-8 mt-[5vh]">
+                <div className="py-8 md:mt-[5vh]">
                     <h4 className="text-lg font-bold">Courses</h4>
                     <ul className="mt-2 ">
                         <li onClick={() => navigate("/english-course")} className="py-2 cursor-pointer hover:text-white">English</li>

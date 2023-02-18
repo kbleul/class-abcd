@@ -44,7 +44,7 @@ const Home = ({ isloggedIn, setisloggedIn }) => {
             {!isloggedIn && <Login setisloggedIn={setisloggedIn} />}
         </section>
 
-        <section className='mt-[35vh] flex justify-between items-center w-4/5 ml-[10%]'>
+        <section className='mt-[25vh] flex justify-between items-center w-4/5 ml-[10%]'>
             <div className="w-[49%] flex flex-col">
                 <h2 className='w-[85%] text-4xl italic font-light '>Interface Friendly Learning At</h2>
                 <h2 className="w-[85%] text-4xl font-bold text-blue-500 hero-name text-right">ClassABCD</h2>
@@ -61,7 +61,7 @@ const Home = ({ isloggedIn, setisloggedIn }) => {
             </div>
         </section>
 
-        <section className='mt-[35vh] flex justify-between items-center w-4/5 ml-[10%] '>
+        <section className='mt-[25vh] flex justify-between items-center w-4/5 ml-[10%] '>
             <div className="w-[49%] relative">
                 <img src={Img2} alt="" />
                 <div className='absolute top-0 w-full h-full flex justify-center items-center gap-10'>
@@ -99,7 +99,7 @@ const Home = ({ isloggedIn, setisloggedIn }) => {
         </section>
 
 
-        <section className='mt-[35vh]'>
+        <section className='mt-[25vh]'>
             <h2 className='text-center text-4xl mb-8'>Choose Your
                 <span className="font-bold"> English Language Course</span></h2>
 
@@ -109,7 +109,7 @@ const Home = ({ isloggedIn, setisloggedIn }) => {
 
         </section>
 
-        <section className='w-[70%] ml-[15%] mt-[35vh] flex justify-around text-center text-5xl pb-8'>
+        <section className='w-[70%] ml-[15%] mt-[25vh] flex justify-around text-center text-5xl pb-8'>
             <h2 className='w-[70%]'>Our <span className='font-bold'>Video</span></h2>
             <h2 className='w-[30%]'>Our <span className='font-bold'>Courses</span></h2>
         </section>

@@ -10,7 +10,7 @@ const ContactUs = () => {
     const [message, setMessage] = useState("")
 
 
-    return (
+    return (<>
         <main className='w-[70%] ml-[15%] mt-[20vh]'>
             <h2 className="mt-32 text-center text-5xl font-mono mb-8">Contact <span className="font-bold">Us</span></h2>
 
@@ -48,9 +48,10 @@ const ContactUs = () => {
                 </section>
             </article>
 
-            <Footer />
-
         </main>
+        <Footer />
+
+    </>
     )
 }
 

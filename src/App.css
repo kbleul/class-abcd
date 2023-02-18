@@ -1,5 +1,15 @@
-.header_wrapper {
-  background-image: url("./assets/images/bg4.jpg");
+html {
+  scroll-behavior: smooth;
+}
+
+.header_wrapper-logged-in {
+  background-image: url("./assets/images/bg3.jpg");
+  color: "white;";
+}
+
+.header_wrapper,
+.footer_nav-wrapper {
+  font-family: "Open Sans", sans-serif;
 }
 
 .hero {
@@ -60,8 +70,7 @@
 }
 
 .login-subwrapper input[type="tel"],
-.login-subwrapper input[type="password"],
-.login-subwrapper input[type="checkbox"] {
+.login-subwrapper input[type="password"] {
   background: rgba(0, 0, 0, 0.4);
 }
 

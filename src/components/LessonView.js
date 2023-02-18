@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 
 
-const LessonView = () => {
-    const [currentCourse, setCurrentCourse] = useState(1)
+const LessonView = ({ currentCourse, setCurrentCourse }) => {
 
     return (
         <main className=' h-[100vh] overflow-y-scroll w-3/4 p-[10vh] scrollbar-hide'>
@@ -476,10 +475,7 @@ const Expl11 = () => {
 const Expl12 = () => {
 
     return (<> <article className="w-4/5 ml-[10%] border border-gray-300 rounded-lg">
-        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>. . .
-        </h2>
-
-        <h2 className='text-3xl my-8 pl-6'>Questions
+        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Questions
         </h2>
 
         <p className=' my-8 pl-6'>In questions we use a/an, any or how many with countable nouns.

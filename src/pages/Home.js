@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Img1 from "../assets/images/ab.jpg"
 import Img2 from "../assets/images/bg2.jpg"
 import c1 from "../assets/images/c1.jpg"
@@ -15,6 +15,8 @@ import vid from "../assets/video/p.mp4"
 import ReactPlayer from 'react-player'
 import { motion } from "framer-motion"
 import Footer from '../components/Footer'
+import Login from './Login'
+import { useNavigate } from 'react-router-dom'
 
 const Courses = [
     { title: "English Grammar ", img: c1, desc: "We teach you how to properly use English grammar and make it easier to learn English. Improve your English grammar now!" },
@@ -25,32 +27,41 @@ const Courses = [
     { title: "English Listening", img: c6, desc: "All of the English Listening course lessons are presented in a natural conversational tone to help you understand English speakers in real situations." }
 ]
 
-const Home = () => {
+const Home = ({ isloggedIn, setisloggedIn }) => {
+
+    const navigate = useNavigate()
+
     return (<article>
-        <section className='header_wrapper h-[77vh] flex items-end'>
-            <section className='bg-transparent hero py-10 w-[50%] ml-[35%] '>
-                <h2 className='text-6xl text-white font-bold font-mono text-center mb-8'>Welocome !</h2>
-                <p className="text-gray-300  font-serif w-3/5 ml-[20%] text-r">Learn English and Chinese languages with <span className='text-orange-500 font-bold'>ClassABCD</span>, the perfect way to get fluent in multiple languages.</p>
-                <div className=' w-[50%] ml-[25%] flex items-end justify-end mt-4'>
-                    <button className='bg-white hover:bg-transparent border hover:border-white hover:text-white  py-1 px-4 font-bold text-black rounded-full'>Read more</button>
+        <section className={isloggedIn ? "header_wrapper-logged-in h-[77vh] flex items-center justify-center font-myMain " : 'header_wrapper h-[77vh] flex items-center justify-center font-myMain '}>
+            <section className={isloggedIn ? 'bg-transparent text-white py-2 w-[50%] ml-[5%] mt-[10vh] ' : "bg-transparent text-black py-2 w-[50%] ml-[5%] mt-[10vh]"}>
+                <h2 className='text-4xl ml-[10%] font-bold  mb-8'>Learn English, and Chinese with classABCD</h2>
+                <p className=" w-4/5 ml-[10%] text-primary leading-10">The classABCD is an online language education website teaching English and Chinese. It is the best platform to learn English, Chinese and many other languages.</p>
+                <div className=' w-4/5 ml-[10%] mt-8 flex items-end justify-end mt-4'>
+                    <button onClick={() => navigate("/about-us")} className='bg-black hover:bg-gray-900 rounded-md border hover:border-white text-white  py-2 px-8 font-bold text-black '>Read more</button>
                 </div>
             </section>
+
+            {!isloggedIn && <Login setisloggedIn={setisloggedIn} />}
         </section>
 
-        <section className='mt-[25vh] flex justify-between items-center w-4/5 ml-[10%]'>
+        <section className='mt-[35vh] flex justify-between items-center w-4/5 ml-[10%]'>
             <div className="w-[49%] flex flex-col">
                 <h2 className='w-[85%] text-4xl italic font-light '>Interface Friendly Learning At</h2>
                 <h2 className="w-[85%] text-4xl font-bold text-blue-500 hero-name text-right">ClassABCD</h2>
                 <p className="mt-4 leading-8">The classABCD is an online language education website teaching English and Chinese.
                     It is the best platform to learn English, Chinese and many other languages. We provide various kinds of language
                     courses..</p>
+                {!isloggedIn &&
+                    <div className=' w-4/5 ml-[10%] mt-8 flex items-end justify-end mt-4'>
+                        <button className='bg-black hover:bg-gray-900 rounded-md border hover:border-white text-white  py-2 px-8 font-bold text-black '><a href="#login-form">Start Now</a></button>
+                    </div>}
             </div>
             <div className="w-[49%]">
                 <img src={Img1} alt="" />
             </div>
         </section>
 
-        <section className='mt-[25vh] flex justify-between items-center w-4/5 ml-[10%] '>
+        <section className='mt-[35vh] flex justify-between items-center w-4/5 ml-[10%] '>
             <div className="w-[49%] relative">
                 <img src={Img2} alt="" />
                 <div className='absolute top-0 w-full h-full flex justify-center items-center gap-10'>
@@ -77,12 +88,18 @@ const Home = () => {
                     <li className="list-[square]">We believe in an effective, low-cost education and so we've created a simple, powerful system that uses a new approach to language learning.</li>
                     <li className="list-[square]"> Classes are small and the curriculum is innovative and engaging</li>
                 </ul>
+
+                {!isloggedIn &&
+                    <div className=' w-4/5 ml-[10%] mt-8 flex items-end justify-end mt-4'>
+                        <button className='bg-black hover:bg-gray-900 rounded-md border hover:border-white text-white  py-2 px-8 font-bold text-black '><a href="#login-form">Start Now</a></button>
+                    </div>
+                }
             </div>
 
         </section>
 
 
-        <section className='mt-[25vh]'>
+        <section className='mt-[35vh]'>
             <h2 className='text-center text-4xl mb-8'>Choose Your
                 <span className="font-bold"> English Language Course</span></h2>
 
@@ -92,7 +109,7 @@ const Home = () => {
 
         </section>
 
-        <section className='w-[70%] ml-[15%] mt-[40vh] flex justify-around text-center text-5xl pb-8'>
+        <section className='w-[70%] ml-[15%] mt-[35vh] flex justify-around text-center text-5xl pb-8'>
             <h2 className='w-[70%]'>Our <span className='font-bold'>Video</span></h2>
             <h2 className='w-[30%]'>Our <span className='font-bold'>Courses</span></h2>
         </section>
@@ -121,6 +138,13 @@ const Home = () => {
                 </div>
             </div>
         </section>
+
+        {!isloggedIn &&
+            <div className=' w-4/5 ml-[10%] mt-8 flex items-center justify-center mt-4  mb-[35vh]'>
+                <button className='bg-black hover:bg-gray-900 rounded-md border hover:border-white text-white  py-4 px-24 font-bold text-black '><a href="#login-form">Start Now</a></button>
+            </div>
+        }
+
         <Footer />
     </article>
     )

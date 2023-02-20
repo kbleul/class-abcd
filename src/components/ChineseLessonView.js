@@ -1,40 +1,57 @@
 
+import { useState } from "react"
 
 const ChineseLessonView = ({ currentCourse, setCurrentCourse }) => {
 
+    const [showNav, setShowNav] = useState(false)
 
     return (
-        <main className=' h-[100vh] overflow-y-scroll w-3/4 p-[10vh] scrollbar-hide'>
-            {currentCourse === 1 && <Expl1 />}
-            {currentCourse === 2 && <Expl2 />}
-            {currentCourse === 3 && <Expl3 />}
-            {currentCourse === 4 && <Expl4 />}
-            {currentCourse === 5 && <Expl5 />}
-            {currentCourse === 6 && <Expl6 />}
-            {currentCourse === 7 && <Expl7 />}
-            {currentCourse === 8 && <Expl8 />}
+        <main className='md:h-[100vh] overflow-y-scroll w-full md:w-3/4 md:p-[10vh] scrollbar-hide'>
 
-            <article className='mt-8 w-4/5 ml-[10%]  flex justify-between'>
-                {currentCourse !== 1
-                    && <button className="bg-green-600 hover:bg-green-700 cursor-pointer py-2 px-2 text-white w-[15%] rounded-md"
+            <div onClick={() => setShowNav(prev => !prev)} className="flex md:hidden justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M4 18q-.425 0-.713-.288T3 17q0-.425.288-.713T4 16h16q.425 0 
+                .713.288T21 17q0 .425-.288.713T20 18H4Zm0-5q-.425 0-.713-.288T3 12q0-.425.288-.713T4 11h16q.425 0 
+                .713.288T21 12q0 .425-.288.713T20 13H4Zm0-5q-.425 0-.713-.288T3 7q0-.425.288-.713T4 6h16q.425 0 
+                .713.288T21 7q0 .425-.288.713T20 8H4Z" />
+                </svg>
+            </div>
+
+            {showNav && <ChineseLessonNav currentCourse={currentCourse} setCurrentCourse={setCurrentCourse} setShowNav={setShowNav} />}
+
+            {!showNav && <>
+
+                {currentCourse === 1 && <Expl1 />}
+                {currentCourse === 2 && <Expl2 />}
+                {currentCourse === 3 && <Expl3 />}
+                {currentCourse === 4 && <Expl4 />}
+                {currentCourse === 5 && <Expl5 />}
+                {currentCourse === 6 && <Expl6 />}
+                {currentCourse === 7 && <Expl7 />}
+                {currentCourse === 8 && <Expl8 />}
+
+                <article className='mt-8 w-4/5 ml-[10%] pb-2  flex justify-between'>
+                    {currentCourse !== 1
+                        && <button className="bg-green-600 hover:bg-green-700 cursor-pointer py-2 px-2 text-white w-[40%] md:w-[15%] rounded-md"
+                            onClick={() => {
+                                setCurrentCourse(prev => --prev)
+                                window.scrollTo(0, 0);
+                            }}>Prev</button>}
+                    {currentCourse !== 8 && <button className="bg-green-600 hover:bg-green-700 cursor-pointer py-2 px-2 text-white w-[40%] md:w-[15%] rounded-md"
                         onClick={() => {
-                            setCurrentCourse(prev => --prev)
+                            setCurrentCourse(prev => ++prev)
                             window.scrollTo(0, 0);
-                        }}>Prev</button>}
-                {currentCourse !== 8 && <button className="bg-green-600 hover:bg-green-700 cursor-pointer py-2 px-2 text-white w-[15%] rounded-md"
-                    onClick={() => {
-                        setCurrentCourse(prev => ++prev)
-                        window.scrollTo(0, 0);
-                    }}>Next</button>}
-            </article>
+                        }}>Next</button>}
+                </article>
+            </>}
         </main>
     )
 }
 
 const Expl1 = () => {
 
-    return (<> <article className="w-full border border-gray-300 rounded-lg">
-        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Intermediate</h2>
+    return (<> <article className="w-full md:border md:border-gray-300 rounded-lg">
+        <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Intermediate</h2>
 
         <ul className=' w-[98%] ml-[1%] mb-8 text-sm'>
 
@@ -123,8 +140,8 @@ const Expl1 = () => {
 
 const Expl2 = () => {
 
-    return (<> <article className="w-full border border-gray-300 rounded-lg">
-        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Advanced</h2>
+    return (<> <article className="w-full md:border md:border-gray-300 rounded-lg">
+        <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Advanced</h2>
 
         <ul className=' w-[98%] ml-[1%] mb-8 text-sm'>
 
@@ -263,10 +280,8 @@ const Expl2 = () => {
 
 
 const Expl3 = () => {
-    return (<> <article className="w-4/5 ml-[10%] border border-gray-300 rounded-lg">
-        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Beginner Level Mandarin Chinese</h2>
-
-
+    return (<> <article className="md:w-4/5 md:ml-[10%] md:border md:border-gray-300 rounded-lg">
+        <h2 className='text-3xl my-8 px-2 md:pl-6 text-green-500 font-bold'>Beginner Level Mandarin Chinese</h2>
 
         <ul className='bg-gray-200 w-[90%] ml-[5%] mb-8'>
             <div className='flex justify-center items-center border-b border-gray-300 font-bold'>
@@ -384,41 +399,41 @@ const Expl3 = () => {
 
 const Expl4 = () => {
     return (
-        <> <article className="w-4/5 ml-[10%] border border-gray-300 rounded-lg">
-            <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Beginner Level Mandarin Dialogues</h2>
+        <> <article className="md:w-4/5 md:ml-[10%] md:border md:border-gray-300 rounded-lg">
+            <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Beginner Level Mandarin Dialogues</h2>
 
             <p className=' my-8 pl-6 font-bold'> Example 1 :
             </p>
 
-            <li className='list-none my-8 pl-32 italic'>A: 你好！Hello!
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>A: 你好！Hello!
             </li>
-            <li className='list-none my-8 pl-32 italic'> B：你好！Hello!
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B：你好！Hello!
             </li>
-            <li className='list-none my-8 pl-32 italic'>   A：你好吗？ How  are you?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>   A：你好吗？ How  are you?
             </li>
-            <li className='list-none my-8 pl-32 italic'> B: 我很好，谢谢。你呢？ I am fine, thank you. And you?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B: 我很好，谢谢。你呢？ I am fine, thank you. And you?
             </li>
-            <li className='list-none my-8 pl-32 italic'> A： 我也很好。I am fine too.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> A： 我也很好。I am fine too.
             </li>
 
             <p className=' my-8 pl-6 font-bold'>Example 2:
             </p>
 
-            <li className='list-none my-8 pl-32 italic'>   A：早上好！
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>   A：早上好！
             </li>
-            <li className='list-none my-8 pl-32 italic'>    B: 早上好，你们吗？
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>    B: 早上好，你们吗？
             </li>
-            <li className='list-none my-8 pl-32 italic'>  A：我很好。
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>  A：我很好。
             </li>
-            <li className='list-none my-8 pl-32 italic'> B:好。 再见。
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B:好。 再见。
             </li>
         </article></>
     )
 }
 
 const Expl5 = () => {
-    return (<> <article className="w-[98%] ml-[1%] border border-gray-300 rounded-lg">
-        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Intermediate Level Mandarin Chinese</h2>
+    return (<> <article className="w-[98%] ml-[1%] md:border md:border-gray-300 rounded-lg">
+        <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Intermediate Level Mandarin Chinese</h2>
 
         <ul className=' w-[98%] ml-[1%] mb-8 text-sm'>
 
@@ -521,44 +536,44 @@ const Expl5 = () => {
 
 const Expl6 = () => {
     return (
-        <> <article className="w-4/5 ml-[10%] border border-gray-300 rounded-lg">
-            <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Intermediate Level Mandarin Dialogues</h2>
+        <> <article className="md:w-4/5 md:ml-[10%] md:border md:border-gray-300 rounded-lg">
+            <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Intermediate Level Mandarin Dialogues</h2>
 
             <p className=' my-8 pl-6 font-bold'> Example 1 :
             </p>
 
-            <li className='list-none my-8 pl-32 italic'>A: 你经常踢足球吗？ Do you often play football?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>A: 你经常踢足球吗？ Do you often play football?
             </li>
-            <li className='list-none my-8 pl-32 italic'>  B: 不经常。我喜欢经常爬山。Not often. I often prefer mountain climbing.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>  B: 不经常。我喜欢经常爬山。Not often. I often prefer mountain climbing.
             </li>
 
             <p className=' my-8 pl-6 font-bold'> Example 2 :
             </p>
-            <li className='list-none my-8 pl-32 italic'>   A: 你喜欢 哪种颜色？ Which color do you like?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>   A: 你喜欢 哪种颜色？ Which color do you like?
             </li>
-            <li className='list-none my-8 pl-32 italic'> B: 我 喜欢 蓝色的。你呢？ I like the blue one. What about you?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B: 我 喜欢 蓝色的。你呢？ I like the blue one. What about you?
             </li>
 
             <p className=' my-8 pl-6 font-bold'>Example 3:
             </p>
-            <li className='list-none my-8 pl-32 italic'>   A： 这个桌子多少钱？How much is this table?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>   A： 这个桌子多少钱？How much is this table?
             </li>
-            <li className='list-none my-8 pl-32 italic'>  B:  是 2000 RMB。 It is 2000 RMB.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>  B:  是 2000 RMB。 It is 2000 RMB.
             </li>
 
             <p className=' my-8 pl-6 font-bold'>Example 4:
             </p>
-            <li className='list-none my-8 pl-32 italic'> A： 火车站的队伍很长。The line at the railway station is so long.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> A： 火车站的队伍很长。The line at the railway station is so long.
             </li>
-            <li className='list-none my-8 pl-32 italic'> B: 对。我们叫辆出租车吧。 Yes. Let’s call a taxi.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B: 对。我们叫辆出租车吧。 Yes. Let’s call a taxi.
             </li>
         </article></>
     )
 }
 
 const Expl7 = () => {
-    return (<> <article className="w-[98%] ml-[1%] border border-gray-300 rounded-lg">
-        <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Advanced Level Mandarin Chinese</h2>
+    return (<> <article className="w-[98%] ml-[1%] md:border md:border-gray-300 rounded-lg">
+        <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Advanced Level Mandarin Chinese</h2>
 
         <ul className=' w-[98%] ml-[1%] mb-8 text-sm'>
 
@@ -665,44 +680,78 @@ const Expl7 = () => {
 
 const Expl8 = () => {
     return (
-        <> <article className="w-4/5 ml-[10%] border border-gray-300 rounded-lg">
-            <h2 className='text-3xl my-8 pl-6 text-green-500 font-bold'>Advanced Level Mandarin Dialogues</h2>
+        <> <article className="md:w-4/5 md:ml-[10%] md:border md:border-gray-300 rounded-lg">
+            <h2 className='text-3xl my-8 pl-2 md:pl-6 text-green-500 font-bold'>Advanced Level Mandarin Dialogues</h2>
 
             <p className=' my-8 pl-6 font-bold'> Example 1 :
             </p>
 
-            <li className='list-none my-8 pl-32 italic'>A: 餐厅暂时关闭。 The restaurant is temporarily closed.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>A: 餐厅暂时关闭。 The restaurant is temporarily closed.
             </li>
-            <li className='list-none my-8 pl-32 italic'>B: 不好了。我会带我女朋友去那里吃午饭？ Oh no. Where will I take my girlfriend out for lunch now?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>B: 不好了。我会带我女朋友去那里吃午饭？ Oh no. Where will I take my girlfriend out for lunch now?
             </li>
-            <li className='list-none my-8 pl-32 italic'> A:  你们可以去附近的新面馆。You can go to the new noodle restaurant nearby.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> A:  你们可以去附近的新面馆。You can go to the new noodle restaurant nearby.
             </li>
 
 
             <p className=' my-8 pl-6 font-bold'> Example 2 :
             </p>
-            <li className='list-none my-8 pl-32 italic'>  A: 她的皮肤看起来很年轻。Her skin looks so young.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>  A: 她的皮肤看起来很年轻。Her skin looks so young.
             </li>
-            <li className='list-none my-8 pl-32 italic'>B：我注意到。就她的年龄而言，她看起来很年轻。 I noticed. She looks so young for her age.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'>B：我注意到。就她的年龄而言，她看起来很年轻。 I noticed. She looks so young for her age.
             </li>
 
             <p className=' my-8 pl-6 font-bold'>Example 3:
             </p>
-            <li className='list-none my-8 pl-32 italic'> A: 我今天很生气。 I’m very angry today.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> A: 我今天很生气。 I’m very angry today.
             </li>
-            <li className='list-none my-8 pl-32 italic'> B： 你为什么生气？Why are you angry?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B： 你为什么生气？Why are you angry?
             </li>
-            <li className='list-none my-8 pl-32 italic'> A： 我姐姐偷偷看了我的日记。 My sister secretly read my diary.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> A： 我姐姐偷偷看了我的日记。 My sister secretly read my diary.
             </li>
 
             <p className=' my-8 pl-6 font-bold'>Example 4:
             </p>
-            <li className='list-none my-8 pl-32 italic'> A: 我想我感冒了。我应该怎么办 ？ I think I’m catching a cold. What should I do?
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> A: 我想我感冒了。我应该怎么办 ？ I think I’m catching a cold. What should I do?
             </li>
-            <li className='list-none my-8 pl-32 italic'> B: 你应该喝热水，好好休息。 You should drink hot water and rest well.
+            <li className='list-none my-8 pl-12 md:pl-32 italic'> B: 你应该喝热水，好好休息。 You should drink hot water and rest well.
             </li>
         </article></>
     )
 }
+
+const ChineseLessonNav = ({ currentCourse, setCurrentCourse, setShowNav }) => {
+
+    return (
+        <nav className=' bg-gray-200 md:h-[100vh] overflow-y-hidden hover:overflow-y-scroll w-full md:w-1/4 scrollbar-hide'>
+            <ul className='mt-8'>
+                <li className="p-2 font-bold text-center py-4 border-b border-gray-400 hover:border-black">English Course</li>
+
+                <div>
+                    <li className="p-2 py-4 font-bold text-gray-800  cursor-pointer text-sm">Chinese Vocabulary</li>
+                    <div>
+                        <li onClick={() => { { setCurrentCourse(1); setShowNav(false) } }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Intermediate </li>
+                        <li onClick={() => { { setCurrentCourse(2); setShowNav(false) } }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Advanced </li>
+
+                    </div>
+                </div>
+                <div>
+                    <li className="p-2 py-4 font-bold text-gray-800  cursor-pointer text-sm">Chinese Vocabulary 2</li>
+
+                    <div>
+                        <li onClick={() => { setCurrentCourse(3); setShowNav(false) }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Beginner level</li>
+                        <li onClick={() => { setCurrentCourse(4); setShowNav(false) }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Beginner level Dialogues</li>
+                        <li onClick={() => { setCurrentCourse(5); setShowNav(false) }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Intermidiate level</li>
+                        <li onClick={() => { setCurrentCourse(6); setShowNav(false) }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Intermidiate level Dialogues</li>
+                        <li onClick={() => { setCurrentCourse(7); setShowNav(false) }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Advance level</li>
+                        <li onClick={() => { setCurrentCourse(8); setShowNav(false) }} className="text-center md:text-left md:px-12 py-2 border-b border-gray-300 hover:border-gray-400 cursor-pointer text-sm">Advance level Dialogues</li>
+                    </div>
+                </div>
+
+            </ul>
+        </nav>
+    )
+}
+
 
 export default ChineseLessonView

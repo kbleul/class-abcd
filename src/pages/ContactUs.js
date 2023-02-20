@@ -39,9 +39,13 @@ const ContactUs = () => {
 
                 <section>
                     <div>
-                        <p className="text-center font-bold">Message</p>
-                        <input onChange={e => setMessage(e.target.value)} className="w-[90%] ml-[5%] bg-orange-100 px-4 py-2 h-[30vh]" type="text" value={message} placeholder="" />
+                        {/* <p className="text-center font-bold">Message</p>
+                        <input onChange={e => setMessage(e.target.value)} className="w-[90%] ml-[5%] bg-orange-100 px-4 py-2 h-[30vh]" type="text" value={message} placeholder="" /> */}
+                        <textarea onChange={e => setMessage(e.target.value)} className="w-[90%] ml-[5%] bg-orange-100 px-4 py-2 h-[30vh]" rows="10" cols="50" value={message} placeholder="" />
+
+
                     </div>
+
                     <div>
                         <button className='w-[90%] ml-[5%] bg-black hover:bg-gray-800 text-white mt-12 py-2'>Submit</button>
                     </div>

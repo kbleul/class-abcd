@@ -4,7 +4,7 @@
 const ChineseLessonNav = ({ currentCourse, setCurrentCourse }) => {
 
     return (
-        <nav className='bg-gray-200 h-[100vh] overflow-y-hidden hover:overflow-y-scroll w-1/4 scrollbar-hide'>
+        <nav className='hidden md:block bg-gray-200 h-[100vh] overflow-y-hidden hover:overflow-y-scroll w-1/4 scrollbar-hide'>
             <ul className='mt-8'>
                 <li className="p-2 font-bold text-center py-4 border-b border-gray-400 hover:border-black">English Course</li>
 

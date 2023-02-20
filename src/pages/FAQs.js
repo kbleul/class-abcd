@@ -5,12 +5,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const FAQs = () => {
     return (
         <main>
-            <h2 className="mt-32 text-center text-5xl font-mono mb-8">FAQs</h2>
+            <h2 className="mt-8 md:mt-32 text-center text-5xl font-mono mb-8">FAQs</h2>
 
 
-            <article className="w-4/5 ml-[10%]">
+            <article className="w-[96%] ml-[2%] md:w-4/5 md:ml-[10%]">
 
-                <h2 className="mt-32  text-3xl font-mono mb-8 font-bold text-gray-700">Top 6 Frequently asked questions</h2>
+                <h2 className="mt-10 md:mt-32 text-xl font-mono mb-8 font-bold text-gray-700">Top 6 Frequently asked questions</h2>
 
                 <Accordion sx={{ marginTop: "5vh" }}
                 >

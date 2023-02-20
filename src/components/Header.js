@@ -20,13 +20,58 @@ const Header = ({ isloggedIn, setisloggedIn }) => {
                 <div className="w-full lg:w-2/5">
                     <p className='text-5xl italic text-black font-bold text-center'>class<span className='text-orange-500'>ABCD</span></p>
                 </div>
-                <nav className="w-full lg:w-3/5 flex justify-center items-center font-bold gap-6 ">
+                <nav className="w-full lg:w-3/5 flex justify-center items-center font-bold gap-6 border-b md:border-0">
                     <button onClick={() => navigate("/")} className='text-black hover:text-orange-600'>Home</button>
                     <button onClick={() => navigate("/about-us")} className='text-black hover:text-orange-600'>About Us</button>
                     <button onClick={() => navigate("/faqs")} className='text-black hover:text-orange-600'>FAQs</button>
                     <button onClick={() => navigate("/contact-us")} className='text-black hover:text-orange-600'>Contact Us</button>
 
 
+                    <div className="hidden md:flex justify-end w-[40%] mr-2">
+                        {isloggedIn && <PopupState variant="popover" popupId="demo-popup-menu">
+                            {(popupState) => (
+                                <React.Fragment>
+                                    <Button sx={{
+                                        backgroundColor: "transparent",
+                                        border: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                        color: "black",
+                                        fontWeight: "bold",
+                                        borderBottom: "2px solid gray",
+                                        '&:hover, &.Mui-focusVisible': {
+                                            backgroundColor: `transparent`,
+                                            borderBottom: "2px solid red"
+                                        },
+                                    }} variant="contained" {...bindTrigger(popupState)}>
+                                        courses
+                                    </Button>
+                                    <Menu {...bindMenu(popupState)} >
+                                        <MenuItem onClick={() => {
+                                            popupState.close()
+                                            navigate("/english-course");
+                                        }}>English</MenuItem>
+                                        <MenuItem onClick={() => {
+                                            popupState.close()
+                                            navigate("chinese-course")
+                                        }}>Chinise</MenuItem>
+                                    </Menu>
+                                </React.Fragment>
+                            )}
+                        </PopupState>}
+
+
+                        {isloggedIn && <button onClick={() => {
+                            localStorage.removeItem("isSignedIn")
+                            setisloggedIn(false)
+                            navigate("/")
+                        }} className='text-gray-400 hover:text-orange-600 ml-[10%]'>Logout</button>}
+                    </div>
+
+
+
+                </nav>
+                <div className="flex md:hidden justify-center w-full mr-2">
                     {isloggedIn && <PopupState variant="popover" popupId="demo-popup-menu">
                         {(popupState) => (
                             <React.Fragment>
@@ -43,7 +88,7 @@ const Header = ({ isloggedIn, setisloggedIn }) => {
                                         borderBottom: "2px solid red"
                                     },
                                 }} variant="contained" {...bindTrigger(popupState)}>
-                                    languages
+                                    courses
                                 </Button>
                                 <Menu {...bindMenu(popupState)} >
                                     <MenuItem onClick={() => {
@@ -65,9 +110,8 @@ const Header = ({ isloggedIn, setisloggedIn }) => {
                         setisloggedIn(false)
                         navigate("/")
                     }} className='text-gray-400 hover:text-orange-600 ml-[10%]'>Logout</button>}
+                </div>
 
-
-                </nav>
             </section>
         </article >
     )

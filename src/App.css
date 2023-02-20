@@ -7,12 +7,22 @@ html {
 }
 
 .header_wrapper,
-.footer_nav-wrapper {
+.footer_nav-wrapper,
+.whyus_ul {
   font-family: "Open Sans", sans-serif;
 }
 
 .hero {
   background: rgba(0, 0, 0, 0.4);
+}
+
+.courses_li {
+  font-family: "Lobster", cursive;
+  color: aliceblue;
+}
+
+.courses_li li {
+  padding-top: 1rem;
 }
 
 .Button {
@@ -25,7 +35,6 @@ html {
 }
 
 .hero-name {
-  display: block;
   color: #42a5f5;
   text-shadow: 3px 1px 4px rgb(0 0 0 / 22%);
 }
@@ -54,10 +63,6 @@ html {
   -webkit-background-size: cover;
 }
 
-/* .footer_nav-wrapper {
-  background: rgba(0, 0, 0, 0.4);
-} */
-
 .login-wrapper {
   background-image: url("./assets/images/loginbg.jpg");
   background-size: cover;
@@ -78,7 +83,8 @@ html {
 }
 
 /* For IE, Edge and Firefox */
-.scrollbar-hide {
+.scrollbar-hide,
+.courses_list-wrapper {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

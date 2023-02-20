@@ -12,13 +12,13 @@ const Footer = () => {
     return (<>
 
 
-        <section className="mt-[35vh] footer_nav-wrapper text-white flex flex-col md:flex-row justify-center items-center bg-black">
+        <section className="mt-[15vh] md:mt-[30vh] footer_nav-wrapper text-white flex flex-col md:flex-row justify-center items-center bg-black">
             <div className="md:w-[30%] border-r-2 mt-4 md:mt-4">
                 <h2 className='text-4xl md:text-6xl italic text-white font-bold text-center'>class<span className='text-orange-500'>ABCD</span></h2>
-                <p className="text-sm text-gray-300 mt-8 leading-8 w-3/5 ml-[20%] ">Our mission is to prove that learning a language is fun and rewarding !</p>
+                <p className="text-sm text-gray-300 mt-8 leading-8 w-[90%] md:w-3/5 ml-[8%]  md:ml-[20%] ">Our mission is to prove that learning a language is fun and rewarding !</p>
             </div>
             <div className="md:w-[70%] flex flex-col md:flex-row items-center justify-evenly text-gray-400 ">
-                <div className="py-8 md:mt-[5vh]">
+                <div className="py-8 md:mt-[5vh] border-b md:border-none">
                     <h4 className="text-lg font-bold">Compony</h4>
                     <ul className="mt-2 text-center">
                         <li onClick={() => navigate("/")} className="py-2  cursor-pointer hover:text-white">Home</li>
@@ -27,7 +27,7 @@ const Footer = () => {
                         <li onClick={() => navigate("/contact-us")} className="py-2 cursor-pointer hover:text-white">Contact</li>
                     </ul>
                 </div>
-                <div className="py-8 md:mt-[5vh]">
+                <div className="py-8 md:mt-[5vh] border-b md:border-none">
                     <h4 className="text-lg font-bold">Courses</h4>
                     <ul className="mt-2 ">
                         <li onClick={() => navigate("/english-course")} className="py-2 cursor-pointer hover:text-white">English</li>
